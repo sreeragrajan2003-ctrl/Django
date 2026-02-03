@@ -12,4 +12,7 @@ urlpatterns = [
     path('update-rooms/<str:pk>/',views.UpdateRoom,name="update-room"),
     path('delete-rooms/<str:pk>/',views.DeleteRoom,name="delete-room"),
     path('delete-message/<str:pk>/',views.deleteMessage,name="delete-message"),
+    path('update-user/',views.updateUser,name="update-user"),
+    path('topics/',views.topicsPage,name="topics"),
+    path('activit/',views.activities,name="activity"),
 ]

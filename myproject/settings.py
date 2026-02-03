@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-mydhtutk07t5$lbifj^f#8^5k+od$(xy-ckah(k3$5p3ez5t_d'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost']
+ALLOWED_HOSTS = []
 
 
 
@@ -40,10 +40,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     
     'myapp',
+
+    'rest_framework',
+    "corsheaders",
 ]
+
+AUTH_USER_MODEL = 'myapp.User'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+
+    "corsheaders.middleware.CorsMiddleware",
+
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -120,7 +129,13 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/images/'
 
-STATICFILES_DIR = [
+STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+
+MEDIA_ROOT = BASE_DIR / 'static/images'
+
+CORS_ALLOW_ALL_ORIGINS = True
+# STATIC_ROOT=
